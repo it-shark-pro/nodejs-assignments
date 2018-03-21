@@ -1,0 +1,12 @@
+{
+  "env": {
+    "mocha": true,
+    "node": true
+  },
+  "globals": {
+    "assert": true,
+    "sinon": true,
+    "itSync": true,
+    "itAsync": true
+  }
+}
