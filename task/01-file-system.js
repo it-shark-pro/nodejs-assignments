@@ -4,9 +4,8 @@
  * https://nodejs.org/api/fs.html                                                           *
  * https://nodejs.org/api/stream.html                                                       *
  *                                                                                          *
+ * Import module 'fs'.
  ****************************************************************************************** */
-
-const fs = require('fs');
 
 /**
  * Reads file by given path synchronously and returns file data.
@@ -126,5 +125,5 @@ module.exports = {
   writeFileAsync,
   readFileInStream,
   writeFileInStream,
-  transformFile,
+  transformFile
 };

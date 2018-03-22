@@ -24,5 +24,5 @@ function itAsync(title, fn) {
 
 module.exports = {
   itSync,
-  itAsync,
+  itAsync
 };

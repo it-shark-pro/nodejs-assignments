@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "NodeJS training tasks",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint ./**/*.js"
   },
   "repository": {
     "type": "git",

@@ -30,7 +30,7 @@ describe('FS-MODULE ::', () => {
     });
 
     describe('readFileAsync', () => {
-      itAsync('should pass to callback string', (done) => {
+      itAsync('should pass to callback string', done => {
         tasks.readFileAsync(readFilePath, (err, data) => {
           if (err) done(err);
 
@@ -39,7 +39,7 @@ describe('FS-MODULE ::', () => {
         });
       });
 
-      itAsync('should pass to callback file data', (done) => {
+      itAsync('should pass to callback file data', done => {
         tasks.readFileAsync(readFilePath, (err, data) => {
           if (err) done(err);
 
@@ -77,8 +77,8 @@ describe('FS-MODULE ::', () => {
     });
 
     describe('writeFileAsync', () => {
-      itAsync('should write file by the given path', (done) => {
-        tasks.writeFileAsync(writeFilePath, writeFileContent, (err) => {
+      itAsync('should write file by the given path', done => {
+        tasks.writeFileAsync(writeFilePath, writeFileContent, err => {
           if (err) done(err);
 
           assert(fs.existsSync(writeFilePath), 'file was not written by the given path');
@@ -86,8 +86,8 @@ describe('FS-MODULE ::', () => {
         });
       });
 
-      itAsync('should write the given data in the file', (done) => {
-        tasks.writeFileAsync(writeFilePath, writeFileContent, (err) => {
+      itAsync('should write the given data in the file', done => {
+        tasks.writeFileAsync(writeFilePath, writeFileContent, err => {
           if (err) done(err);
 
           assert.equal(fs.readFileSync(writeFilePath), writeFileContent);
@@ -119,11 +119,11 @@ describe('FS-MODULE ::', () => {
         assert.instanceOf(tasks.readFileInStream(streamFilePath), stream.Readable);
       });
 
-      itAsync('should return the given file data in the stream', (done) => {
+      itAsync('should return the given file data in the stream', done => {
         let fileData = '';
 
         tasks.readFileInStream(streamFilePath)
-          .on('data', (data) => {
+          .on('data', data => {
             fileData += data;
           })
           .on('end', () => {
@@ -138,7 +138,7 @@ describe('FS-MODULE ::', () => {
         assert.instanceOf(tasks.writeFileInStream(streamFilePath, streamData), stream.Writable);
       });
 
-      itAsync('should write file by the given path', (done) => {
+      itAsync('should write file by the given path', done => {
         tasks.writeFileInStream(streamFilePath, streamData)
           .on('finish', () => {
             assert(fs.existsSync(streamFilePath), 'file was not written by the given path');
@@ -146,7 +146,7 @@ describe('FS-MODULE ::', () => {
           });
       });
 
-      itAsync('should write the given data in the file', (done) => {
+      itAsync('should write the given data in the file', done => {
         tasks.writeFileInStream(streamFilePath, streamData)
           .on('finish', () => {
             assert.equal(fs.readFileSync(streamFilePath), streamData);
@@ -173,7 +173,7 @@ describe('FS-MODULE ::', () => {
         assert.instanceOf(tasks.transformFile(streamFilePath, newStreamFilePath), stream.Writable);
       });
 
-      itAsync('should change file data', (done) => {
+      itAsync('should change file data', done => {
         tasks.transformFile(streamFilePath, newStreamFilePath)
           .on('finish', () => {
             assert.equal(fs.readFileSync(newStreamFilePath), 'This_is_test_file_for_tasks_on_streams');

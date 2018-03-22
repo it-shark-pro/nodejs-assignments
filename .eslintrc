@@ -2,18 +2,12 @@
   "parserOptions": {
     "sourceType": "module"
   },
-  "extends": ["eslint:recommended"],
   "env": {
     "es6": true,
-    "mocha": true,
-    "node": true
+    "node": true,
+    "mocha": true
   },
-  "globals": {
-    "assert": true,
-    "sinon": true,
-    "itSync": true,
-    "itAsync": true
-  },
+  "extends": ["eslint:recommended"],
   "rules": {
     "array-bracket-spacing": 0,
     "arrow-parens": [2, "as-needed"],
